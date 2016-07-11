@@ -20,22 +20,11 @@ export default class extends React.Component {
   }
 
   render () {
-    console.log('BarChart')
+    // console.log('BarChart')
 
     const {
       index
     } = this.state
-
-    const {
-      data,
-      lineData,
-      height,
-      width,
-      xType,
-      yType,
-      tickTimeDisplayFormat,
-      xDomainRange,
-    } = barChart[index]
 
     return (
       <section>
@@ -45,16 +34,7 @@ export default class extends React.Component {
         <button onClick={this.handleClick}>
           Click Me
         </button>
-        <BarChart
-          data={data}
-          lineData={lineData}
-          height={height}
-          width={width}
-          xType={xType}
-          yType={yType}
-          tickTimeDisplayFormat={tickTimeDisplayFormat}
-          xDomainRange={xDomainRange}
-        />
+        <BarChart {...barChart[index]} />
         <Navigation />
       </section>
     )

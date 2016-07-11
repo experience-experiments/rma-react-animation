@@ -20,15 +20,11 @@ export default class extends React.Component {
   }
 
   render () {
-    console.log('AreaChart')
+    // console.log('AreaChart')
 
     const {
       index
     } = this.state
-
-    const {
-      data
-    } = areaChart[index]
 
     return (
       <section>
@@ -38,9 +34,7 @@ export default class extends React.Component {
         <button onClick={this.handleClick}>
           Click Me
         </button>
-        <AreaChart
-          data={data}
-        />
+        <AreaChart {...areaChart[index]} />
         <Navigation />
       </section>
     )

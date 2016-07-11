@@ -2,22 +2,39 @@ import React from 'react'
 import { PieChart } from 'react-easy-chart'
 import Navigation from '../../navigation'
 
+import pieChart from './pieChart'
+
+const count = (pieChart.length - 1)
+
 export default class extends React.Component {
+  state = {
+    index: 0
+  }
+
+  handleClick = () => {
+    const {
+      index
+    } = this.state
+
+    this.setState({ index: (index === count) ? 0 : index + 1 })
+  }
 
   render () {
-    console.log('PieChart')
+    // console.log('PieChart')
+
+    const {
+      index
+    } = this.state
+
     return (
       <section>
         <header>
-          <h1>Pie Chart</h1>
+          <h1>Pie Chart ({index})</h1>
         </header>
-        <PieChart
-          data={[
-            { key: 'A', value: 100 },
-            { key: 'B', value: 200 },
-            { key: 'C', value: 50 }
-          ]}
-        />
+        <button onClick={this.handleClick}>
+          Click Me
+        </button>
+        <PieChart {...pieChart[index]} />
         <Navigation />
       </section>
     )

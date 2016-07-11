@@ -33,7 +33,6 @@
     "react-easy-chart": "^0.1.4",
     "react-router": "^2.5.2",
     "react-routes-renderer": "^1.1.1",
-    "standard": "^7.1.1",
     "vision": "^4.0.1",
     "webpack": "^1.13.1"
   },

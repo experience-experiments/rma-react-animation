@@ -1,5 +1,8 @@
 {
-  "extends": ["eslint:standard", "plugin:react/recommended"],
+  "extends": [
+  	"eslint:standard",
+  	"plugin:react/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true

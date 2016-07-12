@@ -72,7 +72,8 @@ export default [
         stroke: 'green'
       }
     }
-  }, { // 2
+  },
+  { // 2
     data: [
       [
         { x: 1, y: 20 },

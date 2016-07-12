@@ -19,33 +19,14 @@ module.exports = {
 		filename: '[name].js',
 		publicPath: path.resolve(assetsPath)
 	},
-	node: {
-		console: true,
-		fs: 'empty',
-		net: 'empty',
-		tls: 'empty'
-	},
 	module: {
 		loaders: [
 			{
 				test: /\.js?$/,
 				exclude: [
-					/node_modules/
+					/node_modules\/(?!(react-easy-chart)).*/,
 				],
-				loader: 'babel',
-				query: {
-					presets: [
-						'es2015',
-						'stage-0',
-						'stage-1',
-						'react'
-					],
-					plugins: [
-						'transform-runtime',
-						'transform-class-properties',
-						'transform-object-rest-spread'
-					]
-				}
+				loader: 'babel'
 			}
 		]
 	},

@@ -17,6 +17,7 @@ export default (
     <Route path='line-chart' component={LineChartPage} />
     <Route path='bar-chart' component={BarChartPage} />
     <Route path='pie-chart' component={PieChartPage} />
+    <Route path='scatterplot-chart' component={ScatterplotChartPage} />
     <Route path='legend' component={LegendPage} />
   </Route>
 )

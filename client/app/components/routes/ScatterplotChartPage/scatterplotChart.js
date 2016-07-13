@@ -1,23 +1,32 @@
-const data = [
-  { type: 'A', x: 324.7112378382711, y: 941.2596383877153 },
-  { type: 'B', x: 484.2607441702342, y: 655.5274063049017 },
-  { type: 'C', x: 415.36598379974924, y: 969.5856704999613 },
-  { type: 'D', x: 271.25805177896694, y: 929.4461357222121 },
-  { type: 'E', x: 74.35591016749059, y: 815.4138810817399 },
-  { type: 'F', x: 756.2978717510604, y: 345.8317686005264 },
-  { type: 'G', x: 447.32149909074695, y: 687.7771804353554 },
-  { type: 'H', x: 780.1044011865785, y: 290.5742262056855 },
-  { type: 'A', x: 326.1263469295993, y: 400.5731070923833 },
-  { type: 'B', x: 72.91302091863491, y: 673.2961336782553 },
-  { type: 'C', x: 939.2234924653748, y: 900.0154393679586 },
-  { type: 'D', x: 116.47613287587603, y: 519.8226257487568 },
-  { type: 'E', x: 254.80312198185786, y: 728.2251222290267 },
-  { type: 'F', x: 744.7611728110412, y: 678.604197558077 },
-  { type: 'G', x: 639.6518068616034, y: 750.8964138976927 },
-  { type: 'H', x: 756.891874068618, y: 160.49450053180973 }
+const textData = [
+  { type: 1, x: 'Tue', y: 10 },
+  { type: 1, x: 'Wed', y: 20 },
+  { type: 2, x: 'Thu', y: 30 },
+  { type: 3, x: 'Wed', y: 40 }
 ];
 
-const alternativeData = [
+const timeData = [
+  { type: 1, x: '1-Jan-15', y: 10 },
+  { type: 1, x: '2-Jan-15', y: 20 },
+  { type: 2, x: '1-Jan-15', y: 30 },
+  { type: 2, x: '2-Jan-15', y: 30 },
+  { type: 3, x: '3-Jan-15', y: 40 }
+];
+
+const axisData = [
+  { type: 'One', x: 1, y: 5, z: 500 },
+  { type: 'One', x: 3, y: 1, z: 100 },
+  { type: 'One', x: 0, y: 6, z: 600 },
+  { type: 'One', x: 5, y: 2, z: 200 },
+  { type: 'One', x: 4, y: 4, z: 400 },
+  { type: 'One', x: 5, y: 9, z: 900 },
+  { type: 'One', x: 9, y: 1, z: 100 },
+  { type: 'One', x: 5, y: 6, z: 600 },
+  { type: 'One', x: 3, y: 9, z: 900 },
+  { type: 'One', x: 7, y: 9, z: 900 }
+];
+
+const data = [
   { type: 'One', x: 1, y: 5 },
   { type: 'Two', x: 3, y: 1 },
   { type: 'Three', x: 0, y: 6 },
@@ -41,6 +50,148 @@ const config = [
   { type: 'Eight', color: '#e4e8ec', stroke: 'black' }
 ];
 
+export default [
+
+// Data
+
+  {
+    data: data,
+  },
+
+// Height & Width
+
+  {
+    data: data,
+    width: 160,
+    height: 90
+  },
+
+// Margin
+
+  {
+    data: data,
+    margin: { top: 10, right: 10, bottom: 30, left: 100 },
+  },
+
+// Axes
+
+  {
+    data: data,
+    axes: true,
+    width: 480,
+    height: 270
+  },
+
+// Y Axis Orientation
+
+  {
+    data: data,
+    axes: true,
+    yAxisOrientRight: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    width: 480,
+    height: 270
+  },
+
+// Axis Labels
+
+  {
+    data: data,
+    axes: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    width: 480,
+    height: 270
+  },
+
+// Dot Radius
+
+  {
+    data: data,
+    axes: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    dotRadius: 10,
+    width: 480,
+    height: 270
+  },
+
+// Config
+
+  {
+    data: data,
+    axes: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    dotRadius: 10,
+    width: 480,
+    height: 270,
+    config: config
+  },
+
+// Grid
+
+  {
+    data: data,
+    axes: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    dotRadius: 6,
+    width: 480,
+    height: 270,
+    grid: true
+  },
+
+// Vertical Grid
+
+  {
+    data: data,
+    axes: true,
+    verticalGrid: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    dotRadius: 6,
+    width: 480,
+    height: 270,
+    grid: true
+  },
+
+// Axis Type
+
+  {
+    data: textData,
+    axes: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    dotRadius: 6,
+    width: 480,
+    height: 270,
+    grid: true,
+    xType: 'text'
+  },
+
+// Domain Range
+
+  {
+    data: timeData,
+    axes: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    dotRadius: 6,
+    width: 480,
+    height: 270,
+    grid: true,
+    xType: 'time',
+    xDomainRange: ['31-Dec-14', '4-Jan-15']
+  },
+
+// 3rd Data Type
+
+  {
+    data: axisData,
+    axes: true,
+    axisLabels: { x: 'My x Axis', y: 'My y Axis' },
+    width: 480,
+    height: 270,
+    grid: true
+  }
+
+];
+
+/*
 export default [
   {
     data: data
@@ -113,3 +264,4 @@ export default [
     grid: true
   }
 ];
+*/

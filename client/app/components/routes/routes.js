@@ -8,6 +8,7 @@ import LineChartPage from './LineChartPage'
 import BarChartPage from './BarChartPage'
 import PieChartPage from './PieChartPage'
 import ScatterplotChartPage from './ScatterplotChartPage'
+import LegendPage from './LegendPage'
 
 export default (
   <Route path='/' component={IndexPath}>
@@ -16,6 +17,6 @@ export default (
     <Route path='line-chart' component={LineChartPage} />
     <Route path='bar-chart' component={BarChartPage} />
     <Route path='pie-chart' component={PieChartPage} />
-    <Route path='scatterplot-chart' component={ScatterplotChartPage} />
+    <Route path='legend' component={LegendPage} />
   </Route>
 )

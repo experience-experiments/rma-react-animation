@@ -1,3 +1,4 @@
+/*
 const data = [
   { 'key': 'A', 'value': 956.022662328486, 'color': '#1e313c' },
   { 'key': 'B', 'value': 338.2905078779768, 'color': '#3f4c55' },
@@ -7,7 +8,105 @@ const data = [
   { 'key': 'F', 'value': 194.45016762175348, 'color': '#aaac84' },
   { 'key': 'G', 'value': 915.6017113048474, 'color': '#dce7c5' }
 ];
+*/
 
+export default [
+
+// Data, 1
+
+  {
+    data: [
+      { key: 'A', value: 100 },
+      { key: 'B', value: 200 },
+      { key: 'C', value: 50 }
+    ]
+  },
+
+// Data, 2
+
+  {
+    data: [
+      { key: 'A', value: 100, color: '#aaac84' },
+      { key: 'B', value: 200, color: '#dce7c5' },
+      { key: 'C', value: 50, color: '#e3a51a' }
+    ]
+  },
+
+// Size
+
+  {
+    size: 100,
+    data: [
+      { key: 'A', value: 100, color: '#aaac84' },
+      { key: 'B', value: 200, color: '#dce7c5' },
+      { key: 'C', value: 50, color: '#e3a51a' }
+    ]
+  },
+
+// Donut
+
+  {
+    size: 400,
+    innerHoleSize: 200,
+    data: [
+      { key: 'A', value: 100, color: '#aaac84' },
+      { key: 'B', value: 200, color: '#dce7c5' },
+      { key: 'C', value: 50, color: '#e3a51a' }
+    ]
+  },
+
+// Padding
+
+  {
+    padding: 50,
+    data: [
+      { key: 'A', value: 100, color: '#aaac84' },
+      { key: 'B', value: 200, color: '#dce7c5' },
+      { key: 'C', value: 50, color: '#e3a51a' }
+    ]
+  },
+
+// Labels
+
+  {
+    labels: true,
+    data: [
+      { key: 'A', value: 100, color: '#aaac84' },
+      { key: 'B', value: 200, color: '#dce7c5' },
+      { key: 'C', value: 50, color: '#e3a51a' }
+    ],
+    styles: {
+      '.chart_text': {
+        fontSize: '1em',
+        fill: '#fff'
+      }
+    }
+  },
+
+// Style
+
+  {
+    labels: true,
+    styles: {
+      '.chart_lines': {
+        strokeWidth: 0
+      },
+      '.chart_text': {
+        fontFamily: 'serif',
+        fontSize: '1.25em',
+        fill: '#333'
+      }
+    },
+    data: [
+      { key: 'A', value: 100, color: '#aaac84' },
+      { key: 'B', value: 200, color: '#dce7c5' },
+      { key: 'C', value: 50, color: '#e3a51a' }
+    ]
+  }
+
+];
+
+/*
 export default [
   { // 1
     data: [
@@ -93,5 +192,4 @@ export default [
     data: data
   }
 ]
-
-
+*/

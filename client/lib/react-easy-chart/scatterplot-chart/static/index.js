@@ -335,7 +335,8 @@ export default class ScatterplotChart extends React.Component {
       axisLabels
     } = this.props;
 
-    const group = root.append('g')
+    const group = root
+      .append('g')
       .attr('class', 'x axis')
       .attr('transform', `translate(0, ${innerH})`);
 

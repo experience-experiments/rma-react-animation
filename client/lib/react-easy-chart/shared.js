@@ -21,7 +21,7 @@ export const defaultStyle = {
   },
   '.bar': {
     fill: 'blue',
-    transition: 'height 0.5s ease-in, y 0.5s ease-in',
+    transition: 'height 0.5s ease-in, width 0.5s ease-in, x 0.5s ease-in, y 0.5s ease-in',
     opacity: 1
   },
   '.bar:hover': {
@@ -43,14 +43,16 @@ export const defaultStyle = {
   },
   '.dot': {
     strokeWidth: 0,
-    opacity: 0.85
+    opacity: 0.85,
+    transition: 'r 0.5s ease-in, cx 0.5s ease-in, cy 0.5s ease-in'
   },
   '.dot:hover': {
     opacity: 1
   },
   'circle.data-point': {
     r: 4,
-    opacity: 0.7
+    opacity: 0.7,
+    transition: 'cx 0.5s ease-in, cy 0.5s ease-in'
   },
   'circle.data-point:hover': {
     r: 6,
@@ -70,7 +72,7 @@ export const defaultStyle = {
   '.axis .label': {
     font: '14px arial'
   },
-  '.axis path,.axis line': {
+  '.axis path, .axis line': {
     fill: 'none',
     strokeWidth: 1,
     'shape-rendering': 'crispEdges'

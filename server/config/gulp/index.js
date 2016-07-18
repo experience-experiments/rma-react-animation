@@ -10,7 +10,8 @@ module.exports =  {
 	jshint: {
 		all: [
 			path.resolve(clientPath, 'app/**/*.js'),
-			path.resolve(clientPath, 'src/app.js')
+			path.resolve(clientPath, 'src/app.js'),
+			path.resolve(clientPath, 'lib/**/*.js')
 		]
 	},
 	webpack: {

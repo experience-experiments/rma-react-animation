@@ -24,6 +24,28 @@
 		renderer = new Renderer(),
 		Routes = require(path.resolve(clientPath, 'app/components')).Routes;
 
+function IndexPage(request, reply) {
+	renderer.render(Routes, request.url.path)
+		.then(function (o) {
+			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
+			reply.view('index', { title: 'React Easy Charts', react: o.rendered });
+		})
+		.catch(function (e) {
+			reply(e);
+		});
+}
+
+function ChartPage(request, reply) {
+	renderer.render(Routes, request.url.path)
+		.then(function (o) {
+			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
+			reply.view('index', { title: 'React Easy Charts', react: o.rendered });
+		})
+		.catch(function (e) {
+			reply(e);
+		});
+}
+
 nconf.argv().env().defaults(config);
 
 	server.register(inert, function (e) {
@@ -36,32 +58,14 @@ nconf.argv().env().defaults(config);
 			method: '*',
 			path: '/',
 			config: {
-				handler: function (request, reply) {
-					renderer.render(Routes, request.url.path)
-						.then(function (o) {
-							if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-							reply.view('index', { title: 'React Easy Charts', react: o.rendered });
-						})
-						.catch(function (e) {
-							reply(e);
-						});
-				}
+				handler: IndexPage
 			}
 		});
 		server.route({
 			method: '*',
-			path: '/{chartType}',
+			path: '/{chartType*}',
 			config: {
-				handler: function (request, reply) {
-					renderer.render(Routes, request.url.path)
-						.then(function (o) {
-							if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-							reply.view('index', { title: 'React Easy Charts', react: o.rendered });
-						})
-						.catch(function (e) {
-							reply(e);
-						});
-				}
+				handler: ChartPage
 			}
 		});
 		server.route({

@@ -20,7 +20,7 @@ export default class extends React.Component {
   }
 
   render () {
-    // console.log('LineChart')
+    console.log('LineChart')
 
     const {
       index

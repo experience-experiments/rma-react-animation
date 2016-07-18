@@ -19,14 +19,17 @@ module.exports = {
 		filename: '[name].js',
 		publicPath: path.resolve(assetsPath)
 	},
+	resolve: {
+		alias: {
+			'react-easy-chart': path.resolve(clientPath, 'lib/react-easy-chart')
+		}
+	},
 	module: {
 		loaders: [
 			{
 				test: /\.js?$/,
-				exclude: [
-					/node_modules\/(?!(react-easy-chart)).*/,
-				],
-				loader: 'babel'
+				loader: 'babel',
+				exclude: /node_modules/
 			}
 		]
 	},
@@ -39,9 +42,6 @@ module.exports = {
 		new webpack.optimize.UglifyJsPlugin({
 			mangle: false,
 			preserveComments: false
-		}),
-		new webpack.ProvidePlugin({
-			'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
 		})
-	] //new webpack.HotModuleReplacementPlugin(),
+	]
 };

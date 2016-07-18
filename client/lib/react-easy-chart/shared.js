@@ -2,18 +2,23 @@ import { extent } from 'd3-array';
 import { scaleLinear as linear, scalePoint as point } from 'd3-scale';
 import { time, select } from 'd3';
 
-export const rmaColorPalet = ['#3F4C55', '#E3A51A', '#F4E956', '#AAAC84'];
+export const defaultColors = [
+  '#3F4C55',
+  '#E3A51A',
+  '#F4E956',
+  '#AAAC84'
+];
 
-export const defaultStyle = {
-  '.pie_chart_lines': {
+export const defaultStyles = {
+  '.pie-chart-slice': {
     stroke: '#fff',
     strokeWidth: 1,
     opacity: '1'
   },
-  '.pie_chart_lines:hover': {
+  '.pie-chart-slice:hover': {
     opacity: '0.8'
   },
-  '.pie_chart_text': {
+  '.pie-chart-label': {
     fontFamily: 'sans-serif',
     fontSize: '12px',
     textAnchor: 'middle',

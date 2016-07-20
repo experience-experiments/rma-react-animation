@@ -117,6 +117,59 @@ export default class ScatterplotChart extends React.Component {
     }
   }
 
+  getDataConfig(type) {
+    const {
+      config
+    } = this.props;
+
+    const index = config.findIndex((item) => item.type === type);
+    return config[index];
+  }
+
+  getFill(data) {
+    const configItem = this.getDataConfig(data.type);
+    return (configItem)
+      ? configItem.color
+      : color(data.type);
+  }
+
+  getRadius(data, dataItem, dotRadius) {
+    if (typeof data[0].z !== 'undefined') {
+      const range = extent(data, (d) => d.z);
+      const mn = range[0];
+      const mx = range[1];
+      const p = ((dataItem.z - mn) / (mx - mn));
+      const minRad = 5;
+      const maxRad = 20;
+      const rad = minRad + ((maxRad - minRad) * p);
+      return rad;
+    }
+    return dotRadius;
+  }
+
+  getStroke(data) {
+    const configItem = this.getDataConfig(data.type);
+    return (configItem)
+      ? configItem.stroke
+      : 'none'; // typeof configItem !== 'undefined' ? configItem.stroke : 'none';
+  }
+
+  getCircles() {
+    const uid = this.uid;
+    return select(`#scatterplot-chart-${uid}`)
+      .selectAll('circle'); // '.dot'
+  }
+
+  getXAxis() {
+    const uid = this.uid;
+    return select(`#scatterplot-x-axis-${uid}`);
+  }
+
+  getYAxis() {
+    const uid = this.uid;
+    return select(`#scatterplot-y-axis-${uid}`);
+  }
+
   createDomainRangeGenerator(axisType, domainRange, data, type, length, yAxisOrientRight) {
     const dataIndex =
       (axisType === 'x')
@@ -188,69 +241,15 @@ export default class ScatterplotChart extends React.Component {
     return axis;
   }
 
-  getDataConfig(type) {
-    const {
-      config
-    } = this.props;
-
-    const index = config.findIndex((item) => item.type === type);
-    return config[index];
-  }
-
-  getFill(data) {
-    const configItem = this.getDataConfig(data.type);
-    return (configItem)
-      ? configItem.color
-      : color(data.type); // typeof configItem !== 'undefined' ? configItem.color : color(data.type);
-  }
-
-  getRadius(data, dataItem, dotRadius) {
-    if (typeof data[0].z !== 'undefined') {
-      const range = extent(data, (d) => d.z);
-      const mn = range[0];
-      const mx = range[1];
-      const p = ((dataItem.z - mn) / (mx - mn));
-      const minRad = 5;
-      const maxRad = 20;
-      const rad = minRad + ((maxRad - minRad) * p);
-      return rad;
-    }
-    return dotRadius;
-  }
-
-  getStroke(data) {
-    const configItem = this.getDataConfig(data.type);
-    return (configItem)
-      ? configItem.stroke
-      : 'none'; // typeof configItem !== 'undefined' ? configItem.stroke : 'none';
-  }
-
-  getCircles() {
-    const uid = this.uid;
-    return select(`#scatterplot-chart-${uid}`)
-      .selectAll('circle'); // '.dot'
-  }
-
-  getXAxis() {
-    const uid = this.uid;
-    return select(`#scatterplot-x-axis-${uid}`);
-  }
-
-  getYAxis() {
-    const uid = this.uid;
-    return select(`#scatterplot-y-axis-${uid}`);
-  }
-
   calculateMargin(axes, spacer, yAxisOrientRight) {
     if (yAxisOrientRight) {
       return (axes)
         ? { top: 24, right: 48, bottom: 24, left: 24 }
         : { top: spacer, right: spacer, bottom: spacer, left: spacer };
-    } else {
-      return (axes)
-        ? { top: 24, right: 24, bottom: 24, left: 48 }
-        : { top: spacer, right: spacer, bottom: spacer, left: spacer };
     }
+    return (axes)
+      ? { top: 24, right: 24, bottom: 24, left: 48 }
+      : { top: spacer, right: spacer, bottom: spacer, left: spacer };
   }
 
   calculateInnerW(w, m) {
@@ -510,9 +509,8 @@ export default class ScatterplotChart extends React.Component {
 
   createSvgNode({ m, w, h }) {
     const node = createElement('svg');
-    select(node)
-      .attr('width', w + m.left + m.right)
-      .attr('height', h + m.top + m.bottom);
+    node.setAttribute('width', w + m.left + m.right);
+    node.setAttribute('height', h + m.top + m.bottom);
     return node;
   }
 
@@ -525,7 +523,7 @@ export default class ScatterplotChart extends React.Component {
   createXAxis({ m, innerW, innerH, root }) {
     const {
       yAxisOrientRight,
-      axisLabels
+      axisLabels: { x: label }
     } = this.props;
 
     const uid = this.uid;
@@ -535,8 +533,6 @@ export default class ScatterplotChart extends React.Component {
       .attr('class', 'x axis')
       .attr('id', `scatterplot-x-axis-${uid}`)
       .attr('transform', `translate(0, ${innerH})`);
-
-    const label = axisLabels.x;
 
     if (label) {
       group
@@ -558,7 +554,7 @@ export default class ScatterplotChart extends React.Component {
   createYAxis({ m, innerW, root }) {
     const {
       yAxisOrientRight,
-      axisLabels
+      axisLabels: { y: label }
     } = this.props;
 
     const uid = this.uid;
@@ -571,8 +567,6 @@ export default class ScatterplotChart extends React.Component {
         (yAxisOrientRight)
           ? `translate(${innerW}, 0)`
           : 'translate(0, 0)');
-
-    const label = axisLabels.y;
 
     if (label) {
       group

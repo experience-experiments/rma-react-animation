@@ -63,7 +63,7 @@ nconf.argv().env().defaults(config);
 		});
 		server.route({
 			method: '*',
-			path: '/{chartType*}',
+			path: '/react-d3/{chartType*}',
 			config: {
 				handler: ChartPage
 			}

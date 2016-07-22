@@ -45,6 +45,7 @@
     "radium": "^0.17.1"
   },
   "devDependencies": {
+    "animation-frame": "^0.3.0",
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-eslint": "^6.1.0",

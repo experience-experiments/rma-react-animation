@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
+import PopMotion from './PopMotion'
 import ReactD3 from './ReactD3'
 import Velocity from './Velocity'
 import ReactMotion from './ReactMotion'
@@ -10,16 +11,20 @@ export default () => (
     <h2><Link to='/'>Index</Link></h2>
     <ul>
       <li>
+        <h3><Link to='/pop-motion'>Pop Motion</Link></h3>
+        <PopMotion />
+      </li>
+      <li>
         <h3><Link to='/react-d3'>React D3</Link></h3>
         <ReactD3 />
       </li>
       <li>
-        <h3><Link to='/velocity'>Velocity</Link></h3>
-        <Velocity />
-      </li>
-      <li>
         <h3><Link to='/react-motion'>React Motion</Link></h3>
         <ReactMotion />
+      </li>
+      <li>
+        <h3><Link to='/velocity'>Velocity</Link></h3>
+        <Velocity />
       </li>
     </ul>
   </nav>

@@ -1,23 +1,18 @@
 import React from 'react'
 import Navigation from '../../../navigation'
-import { tween } from 'popmotion';
+
+import Tween from './tween'
 
 export default class extends React.Component {
   state = {}
 
-  handleMouseEnter = () => {
-    const t = tween({ values: { x: 200 }, onFrame: ({ x }) => console.log(x) })
-    t.start()
-    this.setState({ t: t })
-  }
-  handleMouseLeave = () => {
-    const { t } = this.state
-    t.stop()
-    this.setState({ t: null })
-  }
+  handleMouseEnter = () => this.setState({ over: true })
+  handleMouseLeave = () => this.setState({ over: null })
 
   render () {
     console.log('Tween')
+
+    const { over } = this.state
 
     return (
       <section>
@@ -28,7 +23,18 @@ export default class extends React.Component {
           className='tween'
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}>
-            <p>Tween</p>
+            <Tween over={over}>
+              {({ x }) => { // console.log('x', x);
+                return (
+                  <div className='animate' style={{ transform: `translate3d(${x}px, 0, 0)` }}>
+                    <p>Nope</p>
+                  </div>
+                )
+              }}
+            </Tween>
+            <div className='content'>
+              <p>Yep</p>
+            </div>
         </div>
       </section>
     )

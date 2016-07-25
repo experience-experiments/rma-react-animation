@@ -1,27 +1,38 @@
 import React from 'react'
-import { tween } from 'popmotion'
+import { tween, easing } from 'popmotion'
 
 export default class extends React.Component {
   state = {}
 
-  render () {
-    console.log('Tween')
+  handleFrame = ({ x }) => this.setState({ x })
+
+  componentWillReceiveProps = (props) => {
+    const { x } = this.state
     const {
       over
-    } = this.props
-    /*
-     * Nasty
-     */
+    } = props
+
     if (this.tween) this.tween.stop()
     this.tween = tween({
-      x: (over)
-        ? 400
-        : 0
+      values: {
+        x: {
+          from: (over)
+            ? x > 0 ? x : 0
+            : x < 400 ? x : 400,
+          to: (over)
+            ? 400
+            : 0,
+          ease: easing.easeIn
+        }
+      },
+      onFrame: this.handleFrame
     });
     this.tween.start()
+  }
 
-    return (
-      <p>Tween ({x})</p>
-    )
+  render () {
+    const { x } = this.state
+
+    return this.props.children({ x })
   }
 }

@@ -1,19 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router'
 
+import ReactD3 from './ReactD3'
+import Velocity from './Velocity'
+import ReactMotion from './ReactMotion'
+
 export default () => (
   <nav>
     <h2><Link to='/'>Index</Link></h2>
     <ul>
-      <li><Link to='/react-d3/bar-chart'>Bar Chart</Link></li>
-      <li><Link to='/react-d3/pie-chart/hybrid'>Pie Chart (Hybrid)</Link></li>
-      <li><Link to='/react-d3/pie-chart/static'>Pie Chart (Static)</Link></li>
-      <li><Link to='/react-d3/line-chart'>Line Chart</Link></li>
-      <li><Link to='/react-d3/brokenline-chart'>Broken Line Chart</Link></li>
-      <li><Link to='/react-d3/area-chart'>Area Chart</Link></li>
-      <li><Link to='/react-d3/scatterplot-chart/hybrid'>Scatterplot Chart (Hybrid)</Link></li>
-      <li><Link to='/react-d3/scatterplot-chart/static'>Scatterplot Chart (Static)</Link></li>
-      <li><Link to='/react-d3/legend'>Legend</Link></li>
+      <li>
+        <h3><Link to='/react-d3'>React D3</Link></h3>
+        <ReactD3 />
+      </li>
+      <li>
+        <h3><Link to='/velocity'>Velocity</Link></h3>
+        <Velocity />
+      </li>
+      <li>
+        <h3><Link to='/react-motion'>React Motion</Link></h3>
+        <ReactMotion />
+      </li>
     </ul>
   </nav>
 )

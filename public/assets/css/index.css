@@ -454,3 +454,14 @@ header h1 {
   color: #fff;
   margin: 2em 1em 1em 2em;
 }
+
+section nav {
+  color: #000;
+  margin: 1em 1em 1em 2em;
+}
+
+section nav ul {
+  list-style-type: none;
+  padding-left: 2em;
+}
+

@@ -28,23 +28,46 @@ function IndexPage(request, reply) {
 	renderer.render(Routes, request.url.path)
 		.then(function (o) {
 			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-			reply.view('index', { title: 'React Easy Charts', react: o.rendered });
+			reply.view('index', { title: 'React Easy Charts (Index)', react: o.rendered });
 		})
 		.catch(function (e) {
 			reply(e);
 		});
 }
 
-function ChartPage(request, reply) {
+function ReactD3Page(request, reply) {
 	renderer.render(Routes, request.url.path)
 		.then(function (o) {
 			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-			reply.view('index', { title: 'React Easy Charts', react: o.rendered });
+			reply.view('index', { title: 'Animation (React D3)', react: o.rendered });
 		})
 		.catch(function (e) {
 			reply(e);
 		});
 }
+
+function VelocityPage(request, reply) {
+	renderer.render(Routes, request.url.path)
+		.then(function (o) {
+			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
+			reply.view('index', { title: 'Animation (Velocity)', react: o.rendered });
+		})
+		.catch(function (e) {
+			reply(e);
+		});
+}
+
+function ReactMotionPage(request, reply) {
+	renderer.render(Routes, request.url.path)
+		.then(function (o) {
+			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
+			reply.view('index', { title: 'Animation (React Motion)', react: o.rendered });
+		})
+		.catch(function (e) {
+			reply(e);
+		});
+}
+
 
 nconf.argv().env().defaults(config);
 
@@ -65,9 +88,23 @@ nconf.argv().env().defaults(config);
 			method: '*',
 			path: '/react-d3/{chartType*}',
 			config: {
-				handler: ChartPage
+				handler: ReactD3Page
 			}
 		});
+		server.route({
+			method: '*',
+			path: '/velocity/{chartType*}',
+			config: {
+				handler: VelocityPage
+			}
+		});
+		server.route({
+			method: '*',
+			path: '/react-motion/{chartType*}',
+			config: {
+				handler: ReactMotionPage
+			}
+		})
 		server.route({
 			path: '/assets/{path*}',
 			method: 'GET',

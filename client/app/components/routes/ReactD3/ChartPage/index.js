@@ -45,9 +45,8 @@ export default class extends React.Component {
     return (
       <section>
         <header>
-          <h1>Chart ({index} to {count})</h1>
+          <h1>Chart Page</h1>
         </header>
-        <Navigation />
       </section>
     )
   }

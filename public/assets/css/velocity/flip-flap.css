@@ -1,0 +1,33 @@
+
+.flipFlap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.flipFlap .animate,
+.flipFlap .content {
+  width: 200px;
+  height: 200px;
+}
+
+.flipFlap .animate {
+  position: absolute;
+  background-color: rgb(63, 131, 183);
+  z-index: 1;
+}
+
+.flipFlap .content {
+  background-color: rgb(37, 81, 117);
+}
+
+.flipFlap .animate p,
+.flipFlap .content p {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

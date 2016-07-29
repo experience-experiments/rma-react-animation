@@ -1,0 +1,68 @@
+
+/*
+.linePathChart {
+  position: relative;
+}
+
+.linePathChart .animate,
+.linePathChart .content {
+  width: 200px;
+  height: 200px;
+}
+
+.linePathChart .animate {
+  position: absolute;
+  background-color: rgb(63, 131, 183);
+  z-index: 1;
+}
+
+.linePathChart .content {
+  position: absolute;
+  background-color: rgb(37, 81, 117);
+  z-index: 0;
+}
+
+.linePathChart .animate p,
+.linePathChart .content p {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+*/
+
+.slide {
+  position: relative;
+}
+
+.slide .animate,
+.slide .content {
+  width: 200px;
+  height: 200px;
+}
+
+.slide .animate {
+  position: absolute;
+  background-color: rgb(63, 131, 183);
+  z-index: 1;
+}
+
+.slide .content {
+  position: absolute;
+  background-color: rgb(37, 81, 117);
+  z-index: 0;
+}
+
+.slide .animate p,
+.slide .content p {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

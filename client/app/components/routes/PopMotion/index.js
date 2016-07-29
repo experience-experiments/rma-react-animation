@@ -1,7 +1,9 @@
 import IndexPage from './IndexPage'
-import TweenPage from './TweenPage'
+import SlidePage from './SlidePage'
+import ChartPage from './ChartPage'
 
 export {
   IndexPage,
-  TweenPage
+  SlidePage,
+  ChartPage
 }

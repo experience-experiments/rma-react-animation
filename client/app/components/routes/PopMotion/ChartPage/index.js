@@ -69,18 +69,18 @@ const data = [
 
 export default class extends React.Component {
   render () {
-    console.log('Line')
+    console.log('Chart')
 
     return (
       <section>
         <header>
-          <h1>Line</h1>
+          <h1>Chart</h1>
         </header>
         <Chart
           /*
            *  Added by default in R-E-C
            */
-          margin={{ top: 20, right: 50, bottom: 50, left: 20 }}
+          margin={{ top: 20, right: 20, bottom: 50, left: 50 }}
 
           /*
           axes
@@ -106,12 +106,11 @@ export default class extends React.Component {
           ]}
           */
           axes
-          // grid
+          grid
           xType='time'
           interpolate='cardinal'
           width={750}
           height={250}
-          orient='right'
           data={[
             [
               { x: '1-Jan-15', y: 20 },
@@ -153,6 +152,7 @@ export default class extends React.Component {
           ]}
           */
         />
+        <Navigation />
       </section>
     )
   }

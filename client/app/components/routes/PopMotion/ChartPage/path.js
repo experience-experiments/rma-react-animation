@@ -4,6 +4,16 @@ import { tween, easing } from 'popmotion'
 export default class extends React.Component {
   state = { lineData: [] }
 
+  handleFrame = ({ i, x, y }) => {
+    const {
+      lineData
+    } = this.state
+
+    lineData.splice(i, 1, { x, y })
+
+    this.setState({ lineData: lineData })
+  }
+
   animate = (lineData, ease = easing.easeIn, duration = 750, i = 0) => {
     const l = lineData.length;
     const d = (duration / l);
@@ -49,16 +59,6 @@ export default class extends React.Component {
         onComplete
       })
     ).start()
-  }
-
-  handleFrame = ({ i, x, y }) => {
-    const {
-      lineData
-    } = this.state
-
-    lineData.splice(i, 1, { x, y })
-
-    this.setState({ lineData: lineData })
   }
 
   componentDidMount () {

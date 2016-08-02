@@ -10,5 +10,6 @@ export default (
     <IndexRoute component={IndexPage} />
     <Route path='slide' component={SlidePage} />
     <Route path='chart' component={ChartPage} />
+    <Route path='chart/:index' component={ChartPage} />
   </Route>
 )

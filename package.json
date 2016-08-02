@@ -1,7 +1,7 @@
 {
-  "name": "react-easy-charts-animation",
+  "name": "rma-react-animation",
   "version": "0.0.1",
-  "description": "React Easy Charts",
+  "description": "RMA React Animation",
   "private": true,
   "main": "./app.js",
   "scripts": {

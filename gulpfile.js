@@ -14,7 +14,7 @@ var path = require('path'),
 
 gulp
 	.task('default', ['clean', 'webpack', 'uglify', 'watch', 'server', 'watch-server'], function () {
-		console.log('[Animation]');
+		console.log('[RMA React Animation]');
 	})
 	.task('clean', function () {
 		return gulp.src(path.resolve(assetsPath, 'js/app/**/*.*'), { read: false })

@@ -28,7 +28,7 @@ function IndexPage(request, reply) {
 	renderer.render(Routes, request.url.path)
 		.then(function (o) {
 			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-			reply.view('index', { title: 'React Easy Charts (Index)', react: o.rendered });
+			reply.view('index', { title: 'RMA React Animation (Index)', react: o.rendered });
 		})
 		.catch(function (e) {
 			reply(e);
@@ -39,7 +39,7 @@ function PopMotionPage(request, reply) {
 	renderer.render(Routes, request.url.path)
 		.then(function (o) {
 			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-			reply.view('index', { title: 'Animation (Pop Motion)', react: o.rendered });
+			reply.view('index', { title: 'RMA React Animation (Pop Motion)', react: o.rendered });
 		})
 		.catch(function (e) {
 			reply(e);
@@ -50,7 +50,7 @@ function ReactD3Page(request, reply) {
 	renderer.render(Routes, request.url.path)
 		.then(function (o) {
 			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-			reply.view('index', { title: 'Animation (React D3)', react: o.rendered });
+			reply.view('index', { title: 'RMA React Animation (React D3)', react: o.rendered });
 		})
 		.catch(function (e) {
 			reply(e);
@@ -61,7 +61,7 @@ function ReactMotionPage(request, reply) {
 	renderer.render(Routes, request.url.path)
 		.then(function (o) {
 			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-			reply.view('index', { title: 'Animation (React Motion)', react: o.rendered });
+			reply.view('index', { title: 'RMA React Animation (React Motion)', react: o.rendered });
 		})
 		.catch(function (e) {
 			reply(e);
@@ -72,7 +72,7 @@ function VelocityPage(request, reply) {
 	renderer.render(Routes, request.url.path)
 		.then(function (o) {
 			if (o.redirect) return reply.redirect(o.redirect.pathname + o.redirect.search);
-			reply.view('index', { title: 'Animation (Velocity)', react: o.rendered });
+			reply.view('index', { title: 'RMA React Animation (Velocity)', react: o.rendered });
 		})
 		.catch(function (e) {
 			reply(e);

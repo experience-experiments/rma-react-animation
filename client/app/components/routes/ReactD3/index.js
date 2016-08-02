@@ -2,8 +2,8 @@ import IndexPage from './IndexPage'
 import BarChartPage from './BarChartPage'
 import PieChartHybridPage from './PieChartPage/hybrid'
 import PieChartStaticPage from './PieChartPage/static'
-import LineChartPage from './LineChartPage'
-import BrokenLineChartPage from './BrokenLineChartPage'
+import LineChartHybridPage from './LineChartPage/hybrid'
+import LineChartStaticPage from './LineChartPage/static
 import AreaChartPage from './AreaChartPage'
 import ScatterplotChartHybridPage from './ScatterplotChartPage/hybrid'
 import ScatterplotChartStaticPage from './ScatterplotChartPage/static'
@@ -14,8 +14,8 @@ export {
   BarChartPage,
   PieChartHybridPage,
   PieChartStaticPage,
-  LineChartPage,
-  BrokenLineChartPage,
+  LineChartHybridPage,
+  LineChartStaticPage,
   AreaChartPage,
   ScatterplotChartHybridPage,
   ScatterplotChartStaticPage,

@@ -5,8 +5,8 @@ import IndexPage from './IndexPage'
 import BarChartPage from './BarChartPage'
 import PieChartHybridPage from './PieChartPage/hybrid'
 import PieChartStaticPage from './PieChartPage/static'
-import LineChartPage from './LineChartPage'
-import BrokenLineChartPage from './BrokenLineChartPage'
+import LineChartHybridPage from './LineChartPage/hybrid'
+import LineChartStaticPage from './LineChartPage/static'
 import AreaChartPage from './AreaChartPage'
 import ScatterplotChartHybridPage from './ScatterplotChartPage/hybrid'
 import ScatterplotChartStaticPage from './ScatterplotChartPage/static'
@@ -18,8 +18,8 @@ export default (
     <Route path='bar-chart' component={BarChartPage} />
     <Route path='pie-chart/hybrid' component={PieChartHybridPage} />
     <Route path='pie-chart/static' component={PieChartStaticPage} />
-    <Route path='line-chart' component={LineChartPage} />
-    <Route path='brokenline-chart' component={BrokenLineChartPage} />
+    <Route path='line-chart/hybrid' component={LineChartHybridPage} />
+    <Route path='line-chart/static' component={LineChartStaticPage} />
     <Route path='area-chart' component={AreaChartPage} />
     <Route path='scatterplot-chart/hybrid' component={ScatterplotChartHybridPage} />
     <Route path='scatterplot-chart/static' component={ScatterplotChartStaticPage} />

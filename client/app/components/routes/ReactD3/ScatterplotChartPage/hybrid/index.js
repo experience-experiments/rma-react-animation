@@ -9,7 +9,7 @@ const count = (scatterplotChart.length - 1)
 export default class extends ChartPage {
   state = {
     index: 0,
-    count: count
+    count
   }
 
   render () {

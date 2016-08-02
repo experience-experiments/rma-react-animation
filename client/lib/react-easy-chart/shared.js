@@ -165,20 +165,32 @@ export function calculateMargin(axes, margin, yAxisOrientRight, y2) {
   if (margin) return margin;
   if (yAxisOrientRight) {
     return (axes)
-      ? { top: 20, right: 50, bottom: 50, left: (y2) ? 50 : 20 }
+      ? { top: 20, right: 80, bottom: 80, left: (y2) ? 80 : 20 }
       : { top: 0, right: 0, bottom: 0, left: 0 };
   }
   return (axes)
-    ? { top: 20, right: (y2) ? 50 : 20, bottom: 50, left: 50 }
+    ? { top: 20, right: (y2) ? 80 : 20, bottom: 80, left: 80 }
     : { top: 0, right: 0, bottom: 0, left: 0 };
 }
 
-export function calculateExtent(data, valueGenerator) {
+export function textDomainRange (d, s) {
+  const a = []
+
+  d.forEach((d, i) => {
+    d.forEach((d, i) => {
+      const v = d[s]
+      if (!a.includes(v)) a.splice(i, 0, v)
+    })
+  });
+
+  return a;
+}
+
+export function calculateExtent(data, accessor) {
   let lo; // Low
   let hi; // High
   data.forEach((item) => {
-    const domainRange = extent(item, valueGenerator);
-    const [LO, HI] = domainRange;
+    const [LO, HI] = extent(item, accessor);
     lo = lo < LO ? lo : LO;
     hi = hi > HI ? hi : HI;
   });
@@ -214,7 +226,7 @@ export function createDomainRangeGenerator(scale, domainRange, data, type, lengt
         .domain(
           Array.isArray(domainRange)
             ? domainRange // calculateDomainRange(domainRange, type, parseDate)
-            : data[0].map((d) => d[dataIndex]))
+            : textDomainRange(data, scale))
           .range([0, length])
           .padding(0);
       break;
